@@ -5,13 +5,17 @@ namespace AiRiskEngine.Application.UseCases;
 
 public class EvaluateRiskUseCase : IRiskService
 {
-    public Task<RiskResponse> EvaluateRisk(RiskRequest request)
-    {
-        // mock
-        int score = request.TransactionAmount > 1000 ? 70 : 30;
-        string decision = score > 50 ? "REVIEW" : "APPROVE";
-        string reason = score > 50 ? "High transaction amount" : "Normal transaction";
+    private readonly IRiskAiService _aiService;
 
-        return Task.FromResult(new RiskResponse(score, decision, reason));
-    }
+        public EvaluateRiskUseCase(IRiskAiService aiService)
+        {
+            _aiService = aiService;
+        }
+
+        public async Task<RiskResponse> EvaluateRisk(RiskRequest request)
+        {
+            var aiScore = await _aiService.EvaluateAsync(request.UserId, request.Country, request.Age, request.TransactionAmount);
+
+            return new RiskResponse(aiScore.Score, aiScore.Decision, aiScore.Reason);
+        }
 }

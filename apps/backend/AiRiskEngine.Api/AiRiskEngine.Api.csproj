@@ -12,6 +12,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AiRiskEngine.Application\AiRiskEngine.Application.csproj" />
+    <ProjectReference Include="..\AiRiskEngine.Infrastructure\AiRiskEngine.Infrastructure.csproj" />
+    <ProjectReference Include="..\AiRiskEngine.Domain\AiRiskEngine.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,10 +1,11 @@
 using AiRiskEngine.Application.DTOs;
 using AiRiskEngine.Application.Ports;
 using AiRiskEngine.Application.UseCases;
+using AiRiskEngine.Infrastructure.AI;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Registra serviço no DI
+builder.Services.AddScoped<IRiskAiService, MockRiskAiService>();
 builder.Services.AddScoped<IRiskService, EvaluateRiskUseCase>();
 
 var app = builder.Build();
