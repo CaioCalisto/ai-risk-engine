@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="AiRiskEngine.Api/AiRiskEngine.Api.csproj" />
+  <Project Path="AiRiskEngine.Application/AiRiskEngine.Application.csproj" />
+  <Project Path="AiRiskEngine.Domain/AiRiskEngine.Domain.csproj" />
+  <Project Path="AiRiskEngine.Infrastructure/AiRiskEngine.Infrastructure.csproj" />
+  <Project Path="AiRiskEngine.Tests/AiRiskEngine.Tests.csproj" />
+</Solution>
