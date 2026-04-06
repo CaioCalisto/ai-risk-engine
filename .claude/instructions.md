@@ -1,0 +1,4 @@
+- Follow clean architecture
+- Keep AI logic isolated
+- Prefer deterministic logic over AI
+- Always implement fallback strategies
