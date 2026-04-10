@@ -7,6 +7,6 @@ public class ClaudeOptions
     public string Model { get; set; } = null!;
     public string Version { get; set; } = null!;
     public int MaxTokens { get; set; }
-    public string InstructionsFolder { get; set; }
-    public string InstructionsFileName { get; set; }
+    public string InstructionsFolder { get; set; } = null!;
+    public string InstructionsFileName { get; set; } = null!;
 }
