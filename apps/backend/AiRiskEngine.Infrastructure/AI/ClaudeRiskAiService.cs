@@ -68,8 +68,17 @@ public class ClaudeRiskAiService : IRiskAiService
             .GetProperty("text")
             .GetString();
 
+        text = text
+            .Replace("```json", "")
+            .Replace("```", "")
+            .Trim();
+
         var risk = JsonSerializer.Deserialize<RiskScore>(text!);
 
+        if (risk == null)
+        {
+            throw new Exception("Failed to parse AI response");
+        }
         return risk!;
     }
 }
