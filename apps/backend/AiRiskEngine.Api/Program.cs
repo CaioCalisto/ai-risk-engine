@@ -21,10 +21,13 @@ else
 builder.Services.AddScoped<IRiskService, EvaluateRiskUseCase>();
 builder.Services.Configure<ClaudeOptions>(builder.Configuration.GetSection("Claude"));
 
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
 
 var app = builder.Build();
 
-// Endpoint /risk/evaluate
+app.MapGet("/", () => "AI Risk Engine running");
+
 app.MapPost("/risk/evaluate", async (RiskRequest request, IRiskService riskService) =>
 {
     var response = await riskService.EvaluateRisk(request);
