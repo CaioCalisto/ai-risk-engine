@@ -96,9 +96,8 @@ Output:
 }
 ```
 Example 3 – Very high transaction
-```json
 Input:
-
+```json
 {
 "userId": "789",
 "country": "PT",
